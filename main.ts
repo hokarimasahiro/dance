@@ -81,13 +81,17 @@ basic.forever(function () {
     } else {
         棒グラフ(voice)
     }
-    r = voice
-    g = voice / 1
-    b = voice / 1
-    strip.setPixelColor(0, neopixel.rgb(r, 0, 0))
-    strip.setPixelColor(1, neopixel.rgb(r, g, 0))
-    strip.setPixelColor(2, neopixel.rgb(r, 0, b))
-    strip.setPixelColor(3, neopixel.rgb(0, g, b))
+    r = voice - tl
+    g = voice - tl
+    b = voice - tl
+    if (voice > tl) {
+        strip.setPixelColor(0, neopixel.rgb(r, 0, 0))
+        strip.setPixelColor(1, neopixel.rgb(r, g, 0))
+        strip.setPixelColor(2, neopixel.rgb(r, 0, b))
+        strip.setPixelColor(3, neopixel.rgb(0, g, b))
+    } else {
+        strip.clear()
+    }
     strip.show()
     basic.pause(10)
 })
