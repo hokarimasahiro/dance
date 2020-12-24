@@ -54,7 +54,7 @@ let tl表示 = 0
 let tl = 0
 let strip = neopixel.create(DigitalPin.P0, 4)
 strip.clear()
-tl = 50
+tl = 100
 pins.setPull(DigitalPin.P8, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P12, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P13, PinPullMode.PullUp)
