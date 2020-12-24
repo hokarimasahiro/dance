@@ -77,7 +77,7 @@ basic.forever(function () {
     } else if (pins.digitalReadPin(DigitalPin.P16) == 0) {
         watchfont.showNumber2(16)
     } else if (tl表示 != 0) {
-        watchfont.showNumber2(tl)
+        watchfont.showNumber2(tl % 100)
     } else {
         棒グラフ(voice)
     }
