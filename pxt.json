@@ -6,7 +6,7 @@
         "microphone": "*",
         "bluetooth": "*",
         "pxt-neopixel": "github:hokarimasahiro/pxt-neopixel#218cbba299c0e7238e93906c15b955840691ab7e",
-        "pxt-watchfont": "github:hokarimasahiro/pxt-watchfont#3ec84593ef5930c128aa895220733084d84dd470"
+        "pxt-watchfont": "github:hokarimasahiro/pxt-watchfont#9cdada2e6f9c8b9641e355dab25f1c7186c68833"
     },
     "files": [
         "main.blocks",
