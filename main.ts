@@ -17,11 +17,11 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onSound(DetectedSound.Loud, function () {
     input.setSoundThreshold(SoundThreshold.Loud, 255)
-    if (input.soundLevel() > 128) {
+    if (input.soundLevel() > tl + 70) {
         pins.analogWritePin(AnalogPin.P1, 1023)
         basic.pause(200)
         pins.digitalWritePin(DigitalPin.P1, 0)
-    } else if (input.soundLevel() > 96) {
+    } else if (input.soundLevel() > tl + 40) {
         pins.analogWritePin(AnalogPin.P1, 1023)
         basic.pause(100)
         pins.digitalWritePin(DigitalPin.P1, 0)
