@@ -18,19 +18,23 @@ input.onButtonPressed(Button.A, function () {
 input.onSound(DetectedSound.Loud, function () {
     input.setSoundThreshold(SoundThreshold.Loud, 255)
     if (input.soundLevel() > tl + 70) {
-        pins.analogWritePin(AnalogPin.P1, 1023)
+        pins.analogWritePin(AnalogPin.P0, 1023)
+        strip.showColor(neopixel.colors(RGBColors.White))
         basic.pause(200)
-        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        strip.clear()
     } else if (input.soundLevel() > tl + 40) {
-        pins.analogWritePin(AnalogPin.P1, 1023)
+        pins.analogWritePin(AnalogPin.P0, 1023)
+        strip.showColor(neopixel.colors(RGBColors.Green))
         basic.pause(100)
-        pins.digitalWritePin(DigitalPin.P1, 0)
-        basic.pause(100)
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        strip.clear()
     } else {
-        pins.analogWritePin(AnalogPin.P1, 1023)
+        pins.analogWritePin(AnalogPin.P0, 1023)
+        strip.showColor(neopixel.colors(RGBColors.Yellow))
         basic.pause(50)
-        pins.digitalWritePin(DigitalPin.P1, 0)
-        basic.pause(150)
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        strip.clear()
     }
     input.setSoundThreshold(SoundThreshold.Loud, tl)
 })
@@ -46,13 +50,11 @@ input.onButtonPressed(Button.B, function () {
     basic.pause(500)
     tl表示 = 0
 })
-let b = 0
-let g = 0
-let r = 0
 let voice = 0
 let tl表示 = 0
 let tl = 0
-let strip = neopixel.create(DigitalPin.P0, 4)
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P1, 4)
 strip.clear()
 tl = 100
 pins.setPull(DigitalPin.P8, PinPullMode.PullUp)
@@ -81,17 +83,4 @@ basic.forever(function () {
     } else {
         棒グラフ(voice)
     }
-    r = voice - tl
-    g = voice - tl
-    b = voice - tl
-    if (voice > tl) {
-        strip.setPixelColor(0, neopixel.rgb(r, 0, 0))
-        strip.setPixelColor(1, neopixel.rgb(r, g, 0))
-        strip.setPixelColor(2, neopixel.rgb(r, 0, b))
-        strip.setPixelColor(3, neopixel.rgb(0, g, b))
-    } else {
-        strip.clear()
-    }
-    strip.show()
-    basic.pause(10)
 })
